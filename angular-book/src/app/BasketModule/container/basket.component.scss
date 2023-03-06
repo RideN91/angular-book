@@ -1,0 +1,36 @@
+.container {
+  border: 1px solid #eee;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.book-in-basket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-in-basket + .book-in-basket {
+  margin-top: 1rem;
+}
+
+.book-info {
+  width: 250px;
+  text-align: left;
+}
+
+.dec-and-inc {
+  background-color: rgb(119, 42, 145);
+  border: 1px solid #eee;
+  color: #fff;
+}
+
+span button i .sign {
+  font-style:  #eee;
+}
+
+ul {
+  list-style: none;
+}

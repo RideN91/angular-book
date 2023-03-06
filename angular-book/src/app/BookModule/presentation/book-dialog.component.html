@@ -1,0 +1,62 @@
+<mat-dialog-content>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="save()"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+
+      <input
+        matInput
+        formControlName="author"
+        type="text"
+      />
+
+      <mat-error *ngIf="form.controls['author'].hasError('required')">Hej more, autor je povinný!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Title of the book </mat-label>
+
+      <input
+        matInput
+        formControlName="title"
+        type="text"
+      />
+
+      <mat-error *ngIf="form.controls['title'].hasError('required')">Hej more, název knihy je povinný!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Pages </mat-label>
+
+      <input
+        matInput
+        formControlName="pages"
+        type="number"
+      />
+
+      <mat-error *ngIf="form.controls['pages'].hasError('required')">Hej more, počet stránek je povinný!</mat-error>
+      <mat-error *ngIf="form.controls['pages'].hasError('min')">Hej more, minimální počet stránek je 1!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Genres </mat-label>
+
+      <input
+        matInput
+        formControlName="genres"
+        type="text"
+      />
+
+      <mat-error *ngIf="form.controls['genres'].hasError('required')">Hej more, žánr je povinný!</mat-error>
+    </mat-form-field>
+
+    <button
+      mat-button
+      color="primary"
+    >
+      Save and close
+    </button>
+  </form>
+</mat-dialog-content>

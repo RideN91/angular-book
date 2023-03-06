@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Shopping basket</h1>
+
+  <ul>
+    <li
+      class="book-in-basket"
+      *ngFor="let book of (books$ | async)"
+    >
+      <button
+        mat-icon-button
+        color="warn"
+        name="remove"
+        (click)="remove(book)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <span class="book-info">
+        <b>{{ book.title }}</b>
+        <b>–</b>
+        <b>{{ book.author }}</b>
+      </span>
+
+      <span>
+        <b>Quantity:</b>
+
+        <span class="row-no-gutters">
+          <span class="col">
+            <button
+              mat-icon-button
+              class="dec-and-inc"
+              color="primary"
+              (click)="decrement(book)"
+            >
+              <mat-icon>remove</mat-icon>
+            </button>
+          </span>
+
+          <span class="col ml-4 mr-2">
+            {{ book.quantity }}
+          </span>
+
+          <span class="col">
+            <button
+              mat-icon-button
+              class="dec-and-inc"
+              color="primary"
+              (click)="increment(book)"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </span>
+
+          <span class="col-8"></span>
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,72 @@
+<b>
+  <h1 class="container">Your library by choice</h1>
+
+  <div>
+    <button
+      mat-raised-button
+      class="add-book"
+      color="primary"
+      mat-raise-module
+      id="addBook"
+      (click)="openDialog()"
+    >Add new book to the library</button>
+  </div>
+
+  <ng-container
+    class="book-list-container"
+    *ngIf="books$ | async; let books"
+  >
+    <div
+      class="book"
+      *ngFor="let book of books"
+    >
+      <div>
+        <img
+          class="image"
+          [attr.src]="book.image"
+        />
+      </div>
+
+      <div class="book-info">
+        <div>
+          <b>Author:</b>
+          <b>&nbsp;</b>
+          <b>{{ book.author }}</b>
+        </div>
+
+        <div>
+          <b>Title:</b>
+          <b>&nbsp;</b>
+          <b>{{ book.title }}</b>
+        </div>
+
+        <div>
+          <b>Pages:</b>
+          <b>&nbsp;</b>
+          <b>{{ book.pages }}</b>
+        </div>
+
+        <div>
+          <b>Genres:</b>
+          <b>&nbsp;</b>
+          <b>{{ book.genres }}</b>
+        </div>
+
+        <div *ngIf="book.preview">
+          <b>Preview:</b>
+          <b>&nbsp;</b>
+          <a
+            target="_blank"
+            [attr.href]="book.preview"
+          >Link</a>
+        </div>
+      </div>
+
+      <button
+        class="add-button-basket"
+        mat-raised-button
+        color="primary"
+        (click)="add(book)"
+      >Add to the basket</button>
+    </div>
+  </ng-container>
